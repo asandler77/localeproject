@@ -7,8 +7,8 @@ i18n.use(initReactI18next).init({
   lng: 'en',
   fallbackLng: 'en',
   resources: {
-    en: en,
-    he: he,
+    en,
+    he,
   },
   interpolation: {
     escapeValue: true, // react already safes from xss - but developer should be responsible about mitigation of xss attack
