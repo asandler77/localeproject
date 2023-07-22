@@ -1,15 +1,22 @@
-import React from 'react';
-import {Button, Text, View} from 'react-native';
+import React, {useState} from 'react';
 import {useTranslation} from 'react-i18next';
+import {Button, Text, View} from 'react-native';
+import '../../i18n';
 
+
+// Entrypoint component is basic implementation of locale.
 export const EntryPoint = () => {
   const {t, i18n} = useTranslation();
+  const [lang, setLang] = useState('en');
 
   const handleLanguageChange = () => {
-    const newLanguage = i18n.language === 'en' ? 'he' : 'en';
-    i18n.changeLanguage(newLanguage);
+    const newLanguage = lang === 'en' ? 'he' : 'en';
+    // setLang(newLanguage);
+    i18n
+      .changeLanguage(newLanguage)
+      .then(() => setLang(newLanguage))
+      .catch(err => console.log(err));
   };
-
   return (
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
       <Text>{t('welcome')}</Text>

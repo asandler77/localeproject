@@ -3,6 +3,8 @@ import {useTranslation} from 'react-i18next';
 import {Button, Text, View} from 'react-native';
 import './i18n';
 
+// Entrypoint component is basic implementation of locale.
+
 const App = () => {
   const {t, i18n} = useTranslation();
   const [lang, setLang] = useState('en');
